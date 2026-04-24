@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Untuk Adipkuu 💖</title>
+
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(to bottom, #ffc0cb, #ff9eb5);
+      font-family: 'Comic Sans MS', cursive;
+      overflow: hidden;
+      text-align: center;
+      color: white;
+    }
+
+    .content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      width: 90%;
+    }
+
+    h1 {
+      text-shadow: 0 0 10px #ff4d6d;
+    }
+
+    .bubble {
+      background: white;
+      color: #ff4d6d;
+      padding: 15px;
+      border-radius: 20px;
+      margin: 10px;
+      display: inline-block;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    .btn {
+      margin: 10px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .yes {
+      background: #ff4d6d;
+      color: white;
+    }
+
+    .no {
+      background: white;
+      color: #ff4d6d;
+      position: absolute;
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 20px;
+      animation: float linear forwards;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh); opacity:1; }
+      100% { transform: translateY(-10vh); opacity:0; }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="content">
+  <h1>Hai Adipkuu 💖</h1>
+
+  <div class="bubble" style="animation-delay:1s;">
+    Aku mau nanya sesuatu nih...
+  </div>
+
+  <div class="bubble" style="animation-delay:2.5s;">
+    Kamu tuh kadang ngeselin 😤
+  </div>
+
+  <div class="bubble" style="animation-delay:4s;">
+    Tapi aku tetep sayang kamu 😭💗
+  </div>
+
+  <div class="bubble" style="animation-delay:5.5s;">
+    Jadi sekarang jawab jujur ya...
+  </div>
+
+  <div class="bubble" style="animation-delay:7s;">
+    Do you love me? 😳💞
+  </div>
+
+  <div style="margin-top:20px;">
+    <button class="btn yes" onclick="yesClick()">YES 💖</button>
+    <button class="btn no" id="noBtn">NO 😤</button>
+  </div>
+</div>
+
+<!-- MUSIC -->
+<audio id="music" autoplay loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3">
+</audio>
+
+<script>
+  const noBtn = document.getElementById("noBtn");
+
+  noBtn.addEventListener("mouseover", () => {
+    const x = Math.random() * window.innerWidth;
+    const y = Math.random() * window.innerHeight;
+
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+  });
+
+  function yesClick() {
+    alert("Yayyy 💖 Aku juga sayang kamu lebih banyak 😭💞");
+  }
+
+  function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = ["💖","💗","💞","💕"][Math.floor(Math.random()*4)];
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 6000);
+  }
+
+  setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
